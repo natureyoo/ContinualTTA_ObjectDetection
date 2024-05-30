@@ -1,0 +1,33 @@
+_BASE_: "../Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "./models/swin_tiny_patch4_window7_224_22k_d2.pth"
+  MASK_ON: False
+  PIXEL_MEAN: [ 103.530, 116.280, 123.675 ]
+#  PIXEL_MEAN: [ 123.675, 116.280, 103.530]
+  PIXEL_STD: [57.375, 57.120, 58.395]
+#  PIXEL_STD: [58.395, 57.120, 57.375]
+  BACKBONE:
+    NAME: "build_swint_fpn_backbone"
+  SWINT:
+    OUT_FEATURES: ["stage2", "stage3", "stage4", "stage5"]
+  FPN:
+    IN_FEATURES: ["stage2", "stage3", "stage4", "stage5"]
+  ROI_HEADS:
+    NUM_CLASSES: 6
+DATASETS:
+  TRAIN: ("shift_discrete_train",)
+  TEST: ("shift_discrete_val",)
+SOLVER:
+  TYPE: AdamW
+  IMS_PER_BATCH: 8
+  IMS_PER_BATCH_TEST: 16
+  STEPS: (20000, 27000)
+  MAX_ITER: 30000
+  WEIGHT_DECAY: 0.05
+  BASE_LR: 0.0001
+  CHECKPOINT_PERIOD: 5000
+  AMP:
+    ENABLED: True
+TEST:
+  EVAL_PERIOD: 5000
+OUTPUT_DIR: "./outputs/shift/faster_rcnn_swinT_FPN_1x_pretrained_imagenet1k"

@@ -1,0 +1,29 @@
+_BASE_: "../SHIFT/faster_rcnn_swinT_FPN_1x_discrete.yaml"
+MODEL:
+  WEIGHTS: "models/faster_rcnn_swinT_shift_clear_daytime_1024.pth"
+SOLVER:
+  TYPE: "SGD"
+  IMS_PER_BATCH_TEST: 4
+  BASE_LR: 0.0001
+  CLIP_GRADIENTS:
+    ENABLED: True
+    CLIP_VALUE: 1.0
+DATASETS:
+  SHIFT:
+    DIRNAME: "discrete"
+TEST:
+  ONLINE_ADAPTATION: True
+  CONTINUAL_DOMAIN: True
+  ADAPTATION:
+    SOURCE_FEATS_PATH: "./models/faster_rcnn_swinT_shift_clear_daytime_1024_feature_stats_new.pt"
+    GLOBAL_ALIGN: "KL"
+    FOREGROUND_ALIGN: "KL"
+    ALPHA_GLOBAL: 1.0
+    ALPHA_FOREGROUND: 1.0
+    WEIGHT_REG: 0.0
+    TH_BG: 0.5
+    EMA_GAMMA: 128
+    FREQ_WEIGHT: True
+  ADAPTER:
+    TYPE: "None"
+OUTPUT_DIR: "./outputs/COCO_TTA/tmp"

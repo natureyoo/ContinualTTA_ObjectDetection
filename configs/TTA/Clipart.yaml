@@ -1,0 +1,14 @@
+_BASE_: "./VOC_Corrupted.yaml"
+DATASETS:
+  TEST: ('clipart1k_traintest', )
+SOLVER:
+  BASE_LR: 0.0001
+TEST:
+  CORRUPT: False
+  ANALYSIS: True
+  ONLINE_ADAPTATION: True
+  ADAPTATION:
+    GLOBAL_ALIGN: "KL"
+    FOREGROUND_ALIGN: False
+    ENLARGE_BN_LR: False
+OUTPUT_DIR: "./outputs/Clipart/global_x_div_50_align_0711_lr1e-4"

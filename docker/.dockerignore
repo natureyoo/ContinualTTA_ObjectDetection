@@ -1,0 +1,30 @@
+# Exclude git directory
+.git
+.gitignore
+
+# Exclude Dockerfile and docker directory (since it's already being used)
+docker/
+
+# Exclude any temporary or build files
+*.log
+*.tmp
+*.bak
+*.swp
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# Exclude large datasets or unnecessary files
+./datasets/
+./results/
+./models/
+./outputs/
+./fig/
+./output/
+./wandb/
+./scripts/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db

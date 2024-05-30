@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+*.so
+*.pth
+*.log
+wandb
+outputs/
+*.out
+*.txt
+scripts/
+fig/
