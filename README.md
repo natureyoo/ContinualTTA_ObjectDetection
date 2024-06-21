@@ -1,6 +1,25 @@
-# ttadapter-od
+# Continual Test-Time Object Detection
 
-## Prepare Dataset
+## Installation Instruction
+We use Python 3.10, PyTorch 1.11.0 (CUDA 11.8 build).
+The codebase is built on [Detectron2](https://github.com/facebookresearch/detectron2).
+
+```angular2
+conda create -n cta_od python=3.10
+
+Conda activate cta_od
+
+conda install pytorch==1.11.0 torchvision==0.12.0 cudatoolkit=11.8 -c pytorch
+
+cd ContinualTTA_ObjectDetection
+pip install -r requirements.txt
+
+## Make sure you have GCC and G++ version <=8.0
+cd ..
+python -m pip install -e ContinualTTA_ObjectDetection
+
+```
+## Dataset Preparation
 
 Please follow dataset structure below.
 
@@ -32,19 +51,23 @@ Please follow dataset structure below.
         - continuous10x
     ```
 
-## Selective SHIFT Dataset NOTICE
+## Model Checkpoints and Feature Statistics
 
-쉘스크립트에 아래 config를 추가해 원하는 조건에 맞는 SHIFT Dataset 시퀀스를 골라 사용할 수 있습니다.
+- Source pre-trained models and source feature statistics can be downloaded from [Link](https://drive.google.com/drive/folders/17wS8BJrRBjikGkp3mD_8JGt0b4HO6K7M?usp=sharing).
 
-Eval-only 조건에서만 동작하며, 조건에 맞는 시퀀스가 여러 개 있더라도 하나의 시퀀스만 랜덤으로 선택됩니다.
 
-    
-    SHIFT config usage: 
+## Citation
 
-        아래 선택지 중 입력. 현재 복수 선택 불가능. 따로 선택하지 않고자 할 경우 None 입력 혹은 config 선언하지 않음.
-        DATASETS.SHIFT.SHIFT_TYPE = daytime_to_night, clear_to_rainy, clear_to_foggy
-        DATASETS.SHIFT.WEATHER = overcast, clear, cloudy, foggy, rainy
-        DATASETS.SHIFT.TIME = day, night, dawn/dusk
-    
+If you found IRG SFDA useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
 
+```bibtex
+@InProceedings{Yoo_2024_CVPR,
+    author    = {Yoo, Jayeon and Lee, Dongkwan and Chung, Inseop and Kim, Donghyun and Kwak, Nojun},
+    title     = {What How and When Should Object Detectors Update in Continually Changing Test Domains?},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {23354-23363}
+}
+```
 
