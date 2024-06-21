@@ -1,5 +1,8 @@
 # Continual Test-Time Object Detection
 
+This is the official code implementation for 'What, How, and When Should Object Detectors Update in Continually Changing Test Domains?' presented at CVPR 2024 [arxiv](https://arxiv.org/abs/2312.08875).
+
+
 ## Installation Instruction
 We use Python 3.10, PyTorch 1.11.0 (CUDA 11.8 build).
 The codebase is built on [Detectron2](https://github.com/facebookresearch/detectron2).
