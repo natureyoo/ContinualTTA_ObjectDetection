@@ -58,6 +58,18 @@ Please follow dataset structure below.
 
 - Source pre-trained models and source feature statistics can be downloaded from [Link](https://drive.google.com/drive/folders/17wS8BJrRBjikGkp3mD_8JGt0b4HO6K7M?usp=sharing).
 
+## Run Test-Time Adaptation
+```angular2
+# coco -> coco-corrupted
+bash scripts/coco_adapt.sh
+
+# shift discrete
+bash scripts/shift_discrete_adapt.sh
+
+# shift continuous
+bash scripts/shift_continuous_adapt.sh
+
+```
 
 ## Citation
 
