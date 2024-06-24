@@ -68,7 +68,23 @@ bash scripts/shift_discrete_adapt.sh
 
 # shift continuous
 bash scripts/shift_continuous_adapt.sh
+=======
 
+```
+
+## Citation
+
+If you found IRG SFDA useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
+
+```bibtex
+@InProceedings{Yoo_2024_CVPR,
+    author    = {Yoo, Jayeon and Lee, Dongkwan and Chung, Inseop and Kim, Donghyun and Kwak, Nojun},
+    title     = {What How and When Should Object Detectors Update in Continually Changing Test Domains?},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {23354-23363}
+}
 ```
 
 ## Citation
