@@ -76,7 +76,7 @@ bash scripts/shift_continuous_adapt.sh
 
 ## Citation
 
-If you found IRG SFDA useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
+If you found our work is useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
 
 ```bibtex
 @InProceedings{Yoo_2024_CVPR,
