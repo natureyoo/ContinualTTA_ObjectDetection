@@ -1,10 +1,10 @@
 _BASE_: "../COCO-Detection/faster_rcnn_swinT_FPN_1x.yaml"
 MODEL:
-  WEIGHTS: "models/faster_rcnn_swinT_FPN_imagenet22k_jy_1011.pth"
+  WEIGHTS: "models/faster_rcnn_swinT_coco.pth"
 SOLVER:
   TYPE: "SGD"
   IMS_PER_BATCH_TEST: 4
-  BASE_LR: 0.0001
+  BASE_LR: 0.001
   CLIP_GRADIENTS:
     ENABLED: True
     CLIP_VALUE: 5.0
@@ -13,7 +13,7 @@ TEST:
   CONTINUAL_DOMAIN: True
   ADAPTATION:
     CONTINUAL: True
-    SOURCE_FEATS_PATH: "./models/faster_rcnn_swinT_FPN_imagenet22k_jy_1011_feature_stats_new.pt"
+    SOURCE_FEATS_PATH: "./models/COCO_swinT_stats.pt"
     GLOBAL_ALIGN: "KL"
     FOREGROUND_ALIGN: "KL"
     ALPHA_GLOBAL: 1.0

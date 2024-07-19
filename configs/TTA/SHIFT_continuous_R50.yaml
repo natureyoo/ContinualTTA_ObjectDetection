@@ -1,4 +1,4 @@
-_BASE_: "../SHIFT/faster_rcnn_R_50_FPN_1x_discrete.yaml"
+_BASE_: "../SHIFT/faster_rcnn_R50_FPN_1x_discrete.yaml"
 MODEL:
   WEIGHTS: "models/faster_rcnn_R50_shift_clear_daytime.pth"
 SOLVER:
