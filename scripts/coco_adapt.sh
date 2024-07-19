@@ -34,3 +34,15 @@ do python tools/train_net.py \
   	TEST.ADAPTATION.CONTINUAL ${continual} \
 	OUTPUT_DIR outputs/COCO/${bb}_ours_continual_${continual}
 done
+
+# ours-skip
+export where="adapter"
+for continual in False True
+do python tools/train_net.py \
+  	--config-file ${config_path} \
+  	--eval-only --wandb \
+  	TEST.ADAPTATION.WHERE ${where} \
+  	TEST.ADAPTATION.CONTINUAL ${continual} \
+        TEST.ADAPTATION.SKIP_REDUNDANT "stat-period-ema" \
+	OUTPUT_DIR outputs/COCO/${bb}_ours_skip_continual_${continual}
+done
