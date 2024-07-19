@@ -56,7 +56,10 @@ Please follow dataset structure below.
 
 ## Model Checkpoints and Feature Statistics
 
-- Source pre-trained models and source feature statistics can be downloaded from [Link](https://drive.google.com/drive/folders/17wS8BJrRBjikGkp3mD_8JGt0b4HO6K7M?usp=sharing).
+You can download the following assets via [Link](https://drive.google.com/drive/folders/1CrsCu2eJ0ShuVgWsiFYYIyaG9-AE0qu8?usp=drive_link).
+- Source Model checkpoints
+- Feature Statistics
+- Dataset (COCO-Corrupted, 15 corruption type)
 
 ## Run Test-Time Adaptation
 ```angular2
