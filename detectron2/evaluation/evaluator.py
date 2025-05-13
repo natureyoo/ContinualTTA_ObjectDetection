@@ -313,14 +313,16 @@ def inference_on_dataset(
                     ret.pred_boxes = Boxes(bbox)
                     ret.pred_classes = labels
                 #
-                    metadata = MetadataCatalog.get('kitti_val')
+                    metadata = MetadataCatalog.get('coco_2017_val-gaussian_noise')
                     vis = Visualizer(img, metadata)
                     vis_pred = vis.draw_instance_predictions(ret).get_image()
                 #
                     vis = Visualizer(img, metadata)
                     # vis_gt = vis.draw_dataset_dict(inp).get_image()
                     # vis_gt = vis.draw_dataset_input(inp, vis_pred.shape[:2], img.shape[:2]).get_image()    # , output_size, image_size
-                    vis_gt = vis.draw_dataset_input(inp, vis_pred.shape[:2], (inp['height'], inp['width'])).get_image()    # , output_size, image_size
+                    # vis_gt = vis.draw_dataset_input(inp, vis_pred.shape[:2], (inp['height'], inp['width'])).get_image()    # , output_size, image_size
+                    # COCO
+                    vis_gt = vis.draw_dataset_input(inp, inp['instances']._image_size, vis_pred.shape[:2]).get_image()
                 #
                     concat = np.concatenate((vis_pred, vis_gt), axis=1)
                     cv2.imwrite(os.path.join(visualize_dir, basename), concat[:, :, ::-1])

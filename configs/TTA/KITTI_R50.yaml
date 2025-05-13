@@ -1,6 +1,6 @@
-_BASE_: "../KITTI/faster_rcnn_R50_FPN_1x.yaml"
+_BASE_: "../Base/KITTI_faster_rcnn_R50_FPN_1x.yaml"
 MODEL:
-  WEIGHTS: "models/kitti_R50_aug.pth"
+  WEIGHTS: "models/checkpoints/kitti_R50_aug.pth"
 SOLVER:
   TYPE: "SGD"
   IMS_PER_BATCH_TEST: 4
@@ -13,7 +13,7 @@ TEST:
   CONTINUAL_DOMAIN: True
   ADAPTATION:
     CONTINUAL: True
-    SOURCE_FEATS_PATH: "./models/kitti_R50_aug_feature_stats_new.pt"
+    SOURCE_FEATS_PATH: "./models/stats/kitti_R50_aug_feature_stats_new.pt"
     GLOBAL_ALIGN: "KL"
     FOREGROUND_ALIGN: "KL"
     ALPHA_GLOBAL: 1.0

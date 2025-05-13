@@ -1,0 +1,17 @@
+_BASE_: "./Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NUM_CLASSES: 6
+SOLVER:
+  STEPS: (20000, 27000)
+  MAX_ITER: 30000
+  CHECKPOINT_PERIOD: 5000
+DATASETS:
+  TRAIN: ("shift_discrete_train",)
+  TEST: ("shift_discrete_val",)
+TEST:
+  EVAL_PERIOD: 5000

@@ -605,7 +605,7 @@ class Visualizer:
         return self.output
 
 
-    def draw_dataset_input(self, dic, output_size, image_size):
+    def draw_dataset_input(self, dic, dic_image_size, output_size):
         """
         Draw annotations/segmentations in Detectron2 Dataset format.
 
@@ -619,10 +619,12 @@ class Visualizer:
         if annos:
             boxes = annos.gt_boxes.tensor.cpu().numpy()
             refined_boxes = np.zeros_like(boxes)
-            refined_boxes[:, 0] = boxes[:, 0] * image_size[1] / output_size[1]
-            refined_boxes[:, 2] = boxes[:, 2] * image_size[1] / output_size[1]
-            refined_boxes[:, 1] = boxes[:, 1] * image_size[0] / output_size[0]
-            refined_boxes[:, 3] = boxes[:, 3] * image_size[0] / output_size[0]
+            # breakpoint()
+            refined_boxes[:, 0] = boxes[:, 0] * output_size[1] / dic_image_size[1]
+            refined_boxes[:, 2] = boxes[:, 2] * output_size[1] / dic_image_size[1]
+            refined_boxes[:, 1] = boxes[:, 1] * output_size[0] / dic_image_size[0]
+            refined_boxes[:, 3] = boxes[:, 3] * output_size[0] / dic_image_size[0]
+            # breakpoint()
 
             colors = None
             category_ids = annos.gt_classes.cpu().numpy()

@@ -1,6 +1,6 @@
-_BASE_: "../COCO-Detection/faster_rcnn_swinT_FPN_1x.yaml"
+_BASE_: "../Base/COCO_faster_rcnn_swinT_FPN_1x.yaml"
 MODEL:
-  WEIGHTS: "models/faster_rcnn_swinT_coco.pth"
+  WEIGHTS: "models/checkpoints/faster_rcnn_swinT_coco.pth"
 SOLVER:
   TYPE: "SGD"
   IMS_PER_BATCH_TEST: 4
@@ -13,7 +13,7 @@ TEST:
   CONTINUAL_DOMAIN: True
   ADAPTATION:
     CONTINUAL: True
-    SOURCE_FEATS_PATH: "./models/COCO_swinT_stats.pt"
+    SOURCE_FEATS_PATH: "./models/stats/COCO_swinT_stats.pt"
     GLOBAL_ALIGN: "KL"
     FOREGROUND_ALIGN: "KL"
     ALPHA_GLOBAL: 1.0

@@ -1,6 +1,6 @@
-_BASE_: "../SHIFT/faster_rcnn_R50_FPN_1x_discrete.yaml"
+_BASE_: "../Base/SHIFT_faster_rcnn_R50_FPN_1x.yaml"
 MODEL:
-  WEIGHTS: "models/faster_rcnn_R50_shift_clear_daytime.pth"
+  WEIGHTS: "models/checkpoints/faster_rcnn_R50_shift_clear_daytime.pth"
 SOLVER:
   TYPE: "SGD"
   IMS_PER_BATCH_TEST: 4
@@ -17,7 +17,7 @@ TEST:
   ONLINE_ADAPTATION: True
   CONTINUAL_DOMAIN: True
   ADAPTATION:
-    SOURCE_FEATS_PATH: "./models/faster_rcnn_R50_shift_clear_daytime_feature_stats_new.pt"
+    SOURCE_FEATS_PATH: "./models/stats/faster_rcnn_R50_shift_clear_daytime_feature_stats_new.pt"
     GLOBAL_ALIGN: "KL"
     FOREGROUND_ALIGN: "KL"
     ALPHA_GLOBAL: 1.0

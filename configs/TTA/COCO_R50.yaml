@@ -1,6 +1,6 @@
-_BASE_: "../COCO-Detection/faster_rcnn_R50_FPN_1x.yaml"
+_BASE_: "../Base/COCO_faster_rcnn_R50_FPN_1x.yaml"
 MODEL:
-  WEIGHTS: "./models/faster_rcnn_r50_coco.pth"
+  WEIGHTS: "./models/checkpoints/faster_rcnn_R50_coco.pth"
 SOLVER:
   IMS_PER_BATCH_TEST: 4
   BASE_LR: 0.001
@@ -12,7 +12,7 @@ TEST:
   CONTINUAL_DOMAIN: True
   ADAPTATION:
     CONTINUAL: True
-    SOURCE_FEATS_PATH: "./models/COCO_R50_stats.pt"
+    SOURCE_FEATS_PATH: "./models/stats/COCO_R50_stats_new.pt"
     GLOBAL_ALIGN: "KL"
     FOREGROUND_ALIGN: "KL"
     ALPHA_GLOBAL: 1.0
